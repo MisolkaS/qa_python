@@ -36,6 +36,16 @@ class TestBooksCollector:
     def test_get_book_genre_existing_name_sucess(self, books):
         assert books.get_book_genre('Игра Эндера') == 'Фантастика'
 
+    def test_get_books_genre(self, books):
+        all_books = {
+            'Игра Эндера': 'Фантастика',
+            'Интерстеллар': 'Фантастика',
+            'Кто похитил мой мозг?': 'Детективы',
+            'Смешарики': 'Мультфильмы',
+            'Веселые истории': 'Комедии'
+        }
+        assert books.get_books_genre() == all_books
+
     def test_get_book_genre_non_existing_book_return_none(self, books):
         assert books.get_book_genre('Неизвестная книга') is None
 
